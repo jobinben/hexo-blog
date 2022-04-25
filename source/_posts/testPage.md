@@ -131,3 +131,13 @@ tags:
 
    ![AOP执行顺序流程图](testPage/images/AOP执行顺序流程图.png)
 
+
+## 项目上的应用
+
+在nest_td项目下，采用全局的方式去进行AOP编程，而部分 `Gurad`守卫是单独在`Controller`进行拦截。
+
+![project-AOP-1.png](testPage/images/project-AOP-1.png)
+
+对`Gurad`进行二次封装后，进行使用
+![project-AOP-2.png](testPage/images/project-AOP-2.png)
+![project-AOP-3.png](testPage/images/project-AOP-3.png)
