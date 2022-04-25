@@ -86,4 +86,23 @@ tags:
 
 ## 总结
 
+(1) 前端的项目是`pub.js`嵌入`iframe`引入`Vue`的页面，但是这种做法有一些缺点：
+1. 只能在浏览器中使用 `iframe`；
+2. 需要向 `DOM` 添加一个 `iframe` 以对其进行初始化；
+3. 每个 `iframe` 环境都包含完整的 `DOM`，这在一些场景下限制了自定义的灵活度；
+4. 默认情况下，`iframe`对象是可以跨环境的，这意味着需要额外的工作来确保代码安全。
+
+不过`iframe`目前有一个实验性属性`CSP`（内容安全策略）。内容安全策略(`CSP`)是一个额外的安全层，用于检测并削弱某些特定类型的攻击，包括跨站脚本 (`XSS`) 和数据注入攻击等。
+
+
+(2) 可以采用一个新的`JavaScript`提案：`ShadowRealm API`。`ShadowRealm`目前已经进入`stage-3`阶段。进入这个阶段的提案也就是意味着基本稳定。`ShadowRealm API`的优势：
+1. `ShadowRealm`允许一个JS运行时创建多个高度隔离的JS运行环境（`realm`），每个`realm`具有独立的全局对象和内建对象。
+2. 服务器可以在 `ShadowRealm` 中运行第三方代码。
+3. 在 `ShadowRealm` 中可以运行测试，这样外部的JS执行环境不会受到影响，并且每个套件都可以在新环境中启动（这有助于提高可复用性）
+4. 网页抓取(爬虫，从网页中提取数据)也可以在 `ShadowRealm` 中运行。
+   
+在`ShadowRealm`中运行Web应用，`jsdom` 库创建了一个封装的浏览器环境，可以用来测试 `Web` 应用、从 `HTML` 中提取数据等。它目前使用的是 `Node.js vm` 模块【`Nodejs vm`模块它能控制import语法。控制了import，基本就就控制了整个隔离。】，未来可能会更新为使用 `ShadowRealm`（后者的好处是可以跨平台，而 `vm` 目前只支持 `Node.js`）。
+
+
+[关于ShadowRealm参考信息](https://2ality.com/2022/04/shadow-realms.html)
 
