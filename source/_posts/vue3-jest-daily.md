@@ -75,6 +75,14 @@ module.exports = {
 };
 ```
 
+package.json
+配置script属性下的运行指令
+```json
+  "scripts": {
+    "jest": "jest src --watch"
+  },
+```
+
 
 ## 3. 测试单文件SFC
 
@@ -109,5 +117,23 @@ test('TreeSelectCascader: ', async () => {
 ```
 
 
+## 4. 运行测试用例
+
+执行`package.json`下的`scripts`属性下配置好的`jest`指令：
+
+```git
+npm run jest
+```
+
+也可以通过`npx`运行
+```git
+npx jest src --watch
+```
+测试用例执行后的结果：
+
+![test-unit-1](vue3-jest-daily/test-unit-1.png)
 
 
+
+## 其他参考资料
+[vue3-jest环境配置](https://zhuanlan.zhihu.com/p/377566681)
