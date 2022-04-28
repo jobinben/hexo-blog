@@ -82,6 +82,13 @@ tags:
 
    ![business-flow](technologySharing-2/project/business-flow.png)
 
+## 项目部署流程
+
+
+![jenkins-flow](technologySharing-2/project/jenkins-flow.png)
+
+拆开细一点的图
+![qa-CICD](technologySharing-2/project/qa-CICD.png)
 
 
 ## 总结
@@ -92,7 +99,7 @@ tags:
 3. 每个 `iframe` 环境都包含完整的 `DOM`，这在一些场景下限制了自定义的灵活度；
 4. 默认情况下，`iframe`对象是可以跨环境的，这意味着需要额外的工作来确保代码安全。
 
-不过`iframe`目前有一个实验性属性`CSP`（内容安全策略）。内容安全策略(`CSP`)是一个额外的安全层，用于检测并削弱某些特定类型的攻击，包括跨站脚本 (`XSS`) 和数据注入攻击等。
+目前有一个实验性属性`CSP`（内容安全策略）。内容安全策略(`CSP`)是一个额外的安全层，用于检测并削弱某些特定类型的攻击，包括跨站脚本 (`XSS`) 和数据注入攻击等。
 
 
 (2) 可以采用一个新的`JavaScript`提案：`ShadowRealm API`。`ShadowRealm`目前已经进入`stage-3`阶段。进入这个阶段的提案也就是意味着基本稳定。`ShadowRealm API`的优势：
