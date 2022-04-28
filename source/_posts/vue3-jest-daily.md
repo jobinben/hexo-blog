@@ -67,7 +67,7 @@ module.exports = {
 
 babel.config.js
 
-为了不影响其他环境的`presets`和`plugins`的配置，根据测试环境下返回要使用的`presets`和`plugins`。
+为了不影响其他环境的`presets`和`plugins`的配置，根据测试环境下返回要使用的`presets`和`plugins`
 ```js
 module.exports = api => {
 	const isTest = api.env('test');
@@ -84,6 +84,7 @@ module.exports = api => {
 ```
 
 package.json
+
 配置script属性下的运行指令
 ```json
   "scripts": {
