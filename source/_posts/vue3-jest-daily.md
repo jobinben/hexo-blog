@@ -30,7 +30,7 @@ npm i @vue/babel-preset-app @testing-library/vue@next @testing-library/user-even
 [Jest](https://jestjs.io/zh-Hans/docs/getting-started)
 
 
-## 2. 配置文件
+## 2. 相关配置
 
 jest.config.js
 ```js
@@ -67,11 +67,19 @@ module.exports = {
 
 babel.config.js
 
+为了不影响其他环境的`presets`和`plugins`的配置，根据测试环境下返回要使用的`presets`和`plugins`。
 ```js
-module.exports = {
-	presets: [
-		'@vue/app',
-	],
+module.exports = api => {
+	const isTest = api.env('test');
+	// You can use isTest to determine what presets and plugins to use.
+	if(isTest) {
+		return {
+			presets: [
+				'@vue/app',
+			],
+		};
+	}
+	return {};
 };
 ```
 
@@ -79,7 +87,7 @@ package.json
 配置script属性下的运行指令
 ```json
   "scripts": {
-    "jest": "jest src --watch"
+    "jest": "jest tenui\/src --watch"
   },
 ```
 
@@ -88,7 +96,7 @@ package.json
 
 TreeSelectCascader.vue
 
-```vue
+```html
 <template>
   <div class="cascader">
     <div class="popover-wrapper" v-if="popoverVisible" data-test="TreeSelectCascader">
