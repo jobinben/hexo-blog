@@ -20,6 +20,7 @@ npm i babel-jest@26.0.0 jest@26.0.0 ts-jest@26.4.4 -D
 ```git
 npm i @vue/babel-preset-app @testing-library/vue@next @testing-library/user-event @testing-library/jest-dom @types/jest vue-jest@next @vue/test-utils@next -D
 ```
+<!--more-->
 
 关于测试库的使用的参考资料:
 
